@@ -166,6 +166,7 @@ class bp_object_OT_add_camera(bpy.types.Operator):
     def execute(self, context):
         bpy.ops.object.camera_add(align='VIEW')
         camera = context.active_object
+        bpy.context.scene.camera = camera
         bpy.ops.view3d.camera_to_view()
         camera.data.clip_start = .01
         camera.data.clip_end = 9999
